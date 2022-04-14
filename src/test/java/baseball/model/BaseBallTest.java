@@ -1,12 +1,21 @@
-package baseball;
+package baseball.model;
 
-import baseball.model.BaseBall;
 import baseball.model.player.Examiner;
 import baseball.model.player.Resolver;
+import org.junit.jupiter.api.Test;
 
-public class Application {
-    public static void main(String[] args) {
+public class BaseBallTest {
+
+    @Test
+    void 게임_시작() {
         BaseBall baseBall = BaseBall.of(Resolver.of(), Examiner.of());
         baseBall.start();
     }
+
+    @Test
+    void 게임_종료() {
+
+    }
+
+
 }

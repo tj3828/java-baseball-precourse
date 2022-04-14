@@ -1,6 +1,7 @@
-package baseball.model;
+package baseball.model.player;
 
 import baseball.config.BaseBallConfig;
+import baseball.config.BaseBallStatusType;
 import camp.nextstep.edu.missionutils.Console;
 
 import java.util.HashSet;
@@ -17,7 +18,18 @@ public class Resolver extends Player {
 
         return inputAnswer;
     }
+    public boolean isRestart() {
+        String inputRestart = Console.readLine();
+        validateInputRestart(inputRestart);
 
+        return String.valueOf(BaseBallStatusType.RESTART.getCode()).equals(inputRestart);
+    }
+
+    private void validateInputRestart(String inputRestart) {
+        if(!String.valueOf(BaseBallStatusType.RESTART.getCode()).equals(inputRestart) && !String.valueOf(BaseBallStatusType.EXIT.getCode()).equals(inputRestart)) {
+            throw new IllegalArgumentException("Please input value only " + BaseBallStatusType.RESTART.getCode() + " or " + BaseBallStatusType.EXIT.getCode());
+        }
+    }
     private void validateInputAnswer(String inputAnswer) {
 
         if(!validateInputAnswerIfNumber(inputAnswer)) {
@@ -48,5 +60,6 @@ public class Resolver extends Player {
 
         return inputAnswerCharArr.length == inputAnswerSet.size();
     }
+
 
 }
