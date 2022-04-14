@@ -8,6 +8,7 @@ public enum BaseBallResultType {
 
     private final Integer code;
     private final String name;
+
     BaseBallResultType(Integer code, String name) {
         this.code = code;
         this.name = name;

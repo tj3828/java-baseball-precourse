@@ -9,8 +9,8 @@ import baseball.view.BaseBallSystemOutput;
 
 public class BaseBall {
 
-    private Resolver resolver;
-    private Examiner examiner;
+    private final Resolver resolver;
+    private final Examiner examiner;
 
     private BaseBallStatusType status;
 
@@ -25,7 +25,7 @@ public class BaseBall {
     }
 
     public void start() {
-        while(!isExit()) {
+        while (!isExit()) {
             this.init();
             this.setStatus(BaseBallStatusType.RUNNING);
             this.startBaseBall();
@@ -44,7 +44,7 @@ public class BaseBall {
     }
 
     private void checkGameFinish(Result result) {
-        if(result.isCorrect()) {
+        if (result.isCorrect()) {
             BaseBallSystemOutput.writeCorrect();
             this.setStatus(BaseBallStatusType.FINISH);
         }
@@ -53,7 +53,7 @@ public class BaseBall {
     private void checkRestartByResolver() {
         BaseBallSystemOutput.writeToGetIfRestart();
         boolean isRestart = this.resolver.isRestart();
-        if(!isRestart) {
+        if (!isRestart) {
             this.setStatus(BaseBallStatusType.EXIT);
         }
     }
@@ -75,4 +75,5 @@ public class BaseBall {
     private void setStatus(BaseBallStatusType status) {
         this.status = status;
     }
+
 }

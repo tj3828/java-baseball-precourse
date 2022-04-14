@@ -2,7 +2,6 @@ package baseball.config;
 
 public enum BaseBallStatusType {
 
-
     RESTART(1),
     EXIT(2),
     READY(3),

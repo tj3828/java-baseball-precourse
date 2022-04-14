@@ -7,16 +7,17 @@ public class Result {
 
     private Integer ballCount = 0;
     private Integer strikeCount = 0;
+
     public static Result of() {
         return new Result();
     }
 
     public void addByBaseBallResultType(BaseBallResultType baseBallResultType) {
-        if(baseBallResultType == BaseBallResultType.STRIKE) {
+        if (baseBallResultType == BaseBallResultType.STRIKE) {
             this.strikeCount++;
         }
 
-        if(baseBallResultType == BaseBallResultType.BALL) {
+        if (baseBallResultType == BaseBallResultType.BALL) {
             this.ballCount++;
         }
     }
@@ -27,15 +28,15 @@ public class Result {
 
     @Override
     public String toString() {
-        if(isNothing()) {
+        if (isNothing()) {
             return BaseBallResultType.NOTHING.getName();
         }
 
-        if(ballCount == 0) {
+        if (ballCount == 0) {
             return toStringOfStrike();
         }
 
-        if(strikeCount == 0) {
+        if (strikeCount == 0) {
             return toStringOfBall();
         }
 
@@ -53,4 +54,5 @@ public class Result {
     private String toStringOfStrike() {
         return strikeCount + BaseBallResultType.STRIKE.getName();
     }
+
 }
