@@ -6,28 +6,24 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import baseball.config.BaseBallConfig;
 import baseball.config.BaseBallResultType;
-import baseball.model.player.Resolver;
 import java.lang.reflect.Field;
-import java.lang.reflect.Method;
 import java.util.stream.Stream;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.TestInstance.Lifecycle;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
-import org.junit.jupiter.params.provider.CsvSource;
-import org.junit.jupiter.params.provider.EnumSource;
 import org.junit.jupiter.params.provider.MethodSource;
-import org.mockito.CheckReturnValue;
 
 @TestInstance(Lifecycle.PER_CLASS)
 public class ResultTest {
 
     Result result;
 
-    @BeforeAll
+    @BeforeEach
     void result_초기화() {
         result = Result.of();
     }

@@ -76,4 +76,8 @@ public class BaseBall {
         this.status = status;
     }
 
+    public BaseBallStatusType getStatus() {
+        return status;
+    }
+
 }
