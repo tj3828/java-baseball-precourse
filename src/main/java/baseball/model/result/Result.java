@@ -2,6 +2,7 @@ package baseball.model.result;
 
 import baseball.config.BaseBallConfig;
 import baseball.config.BaseBallResultType;
+import java.util.Objects;
 
 public class Result {
 
@@ -53,6 +54,31 @@ public class Result {
 
     private String toStringOfStrike() {
         return strikeCount + BaseBallResultType.STRIKE.getName();
+    }
+
+    public Integer getBallCount() {
+        return ballCount;
+    }
+
+    public Integer getStrikeCount() {
+        return strikeCount;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        Result result = (Result) o;
+        return ballCount.equals(result.ballCount) && strikeCount.equals(result.strikeCount);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(ballCount, strikeCount);
     }
 
 }

@@ -4,7 +4,6 @@ import baseball.config.BaseBallConfig;
 import baseball.config.BaseBallResultType;
 import baseball.model.result.Result;
 import camp.nextstep.edu.missionutils.Randoms;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,7 +16,7 @@ public class Examiner extends Player {
     }
 
     private void addPickNumberInAnswerList(int pickNumber) {
-        if (!answerList.contains(pickNumber)) {
+        if (!answerList.contains(pickNumber) && BaseBallConfig.isBetweenAnswerDigitsRange(pickNumber)) {
             answerList.add(pickNumber);
         }
     }
@@ -62,6 +61,10 @@ public class Examiner extends Player {
         }
 
         return BaseBallResultType.NOTHING;
+    }
+
+    public List<Integer> getAnswerList() {
+        return this.answerList;
     }
 
 }

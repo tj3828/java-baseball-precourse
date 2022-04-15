@@ -13,4 +13,8 @@ public class BaseBallConfig {
         }
     }
 
+    public static boolean isBetweenAnswerDigitsRange(int value) {
+        return BASEBALL_ANSWER_DIGITS_MIN_VALUE <= value && value <= BASEBALL_ANSWER_DIGITS_MAX_VALUE;
+    }
+
 }
